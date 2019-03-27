@@ -9,14 +9,9 @@ public class MapAulaDao implements IAulaDAO{
 	
 	private Map<String,Aula> mapaAula;
 	
-	
-
 	public void createAula(Aula aula) {
 		// TODO Auto-generated method stub
 		mapaAula.put(aula.getNombre(), aula);
-		
-		
-		
 	}
 
 	public List<Aula> getAula() {
@@ -38,7 +33,6 @@ public class MapAulaDao implements IAulaDAO{
 
 	public Aula getAula(String aula) {
 		// TODO Auto-generated method stub
-		
 		return mapaAula.get(aula);
 	}
 	

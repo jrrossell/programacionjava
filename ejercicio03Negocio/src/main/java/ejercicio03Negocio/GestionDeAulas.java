@@ -16,7 +16,12 @@ import ejercicio03Dao.IAulaDAO;
 public class GestionDeAulas {
 	
 	private IAulaDAO aulaDao;
-	
+
+	public GestionDeAulas(IAulaDAO aulaDao) {
+		super();
+		this.aulaDao = aulaDao;
+	}
+
 	public void registrarAula(String nombre, boolean proyector, boolean pizarra, Set<PuestoDeTrabajo> puestosDeAlumnos) {
 		Aula aula = new Aula(nombre, proyector, pizarra, puestosDeAlumnos);
 		aulaDao.createAula(aula);

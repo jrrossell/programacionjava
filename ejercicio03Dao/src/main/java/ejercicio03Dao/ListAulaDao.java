@@ -1,7 +1,7 @@
 package ejercicio03Dao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.List;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
@@ -22,7 +22,7 @@ public class ListAulaDao implements IAulaDAO {
 		// TODO Auto-generated method stub
 		for (Aula aulaRecorrer : almacenDeAulas) {
 			if (aulaRecorrer.getNombre().equals(aula.getNombre())) {
-				almacenDeAulas.remove(aula.getNombre());
+				almacenDeAulas.remove(aulaRecorrer);
 				almacenDeAulas.add(aula);
 			}
 		}
@@ -42,7 +42,7 @@ public class ListAulaDao implements IAulaDAO {
 		// TODO Auto-generated method stub
 		for (Aula aulaRecorrer : almacenDeAulas) {
 			if (aulaRecorrer.getNombre().equals(nombreDeAula)) {
-				almacenDeAulas.remove(aulaRecorrer.getNombre());
+				almacenDeAulas.remove(aulaRecorrer);
 			}
 		}
 	}

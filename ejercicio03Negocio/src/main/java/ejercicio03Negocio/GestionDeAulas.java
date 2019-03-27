@@ -3,6 +3,7 @@ package ejercicio03Negocio;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
@@ -25,6 +26,18 @@ public class GestionDeAulas {
 	public void registrarAula(String nombre, boolean proyector, boolean pizarra, Set<PuestoDeTrabajo> puestosDeAlumnos) {
 		Aula aula = new Aula(nombre, proyector, pizarra, puestosDeAlumnos);
 		aulaDao.createAula(aula);
+	}
+	
+	public List<Aula> getAula() {
+		// TODO Auto-generated method stub
+		List<Aula> aula = aulaDao.getAula();
+		return aula;
+		
+	}
+	
+	public void modificarAula(Aula aula) {
+		// TODO Auto-generated method stub
+		aulaDao.updateAula(aula);
 	}
 	
 	public Collection<Alumno> listaDeAlumnoPorAula(String nombreDeAula){
@@ -59,8 +72,19 @@ public class GestionDeAulas {
 		return listaDeProfesores;
 	}*/
 	
-	public void asignarAlumno(String nombre) {
-		
+	public void asignarAlumnoAlAula(Alumno alumno, Aula aula) {
+		Collection<PuestoDeTrabajo> puestos = aula.getPuestosDeAlumnos();
+		Iterator<PuestoDeTrabajo> iterador = puestos.iterator();
+		PuestoDeTrabajo puesto;
+		while (iterador.hasNext()) {
+			puesto = iterador.next();
+			if(puesto.getPersona() == null) {
+				puesto.setPersona(alumno);
+				return;
+			}
+			
+		}
+
 	}
 	
 	

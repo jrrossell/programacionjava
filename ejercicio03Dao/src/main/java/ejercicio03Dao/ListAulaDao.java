@@ -10,7 +10,7 @@ public class ListAulaDao implements IAulaDAO {
 
 	public void createAula(Aula aula) {
 		almacenDeAulas.add(aula);
-		System.out.println("Aula registrada");
+		//System.out.println("Aula registrada");
 	}
 
 	public List<Aula> getAula() {

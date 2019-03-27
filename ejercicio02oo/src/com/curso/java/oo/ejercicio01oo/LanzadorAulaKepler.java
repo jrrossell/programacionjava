@@ -28,7 +28,7 @@ public class LanzadorAulaKepler {
 		while(iterador.hasNext() && numeroDeAlumnos > 0) {
 			PuestoDeTrabajo puestoActual = iterador.next();
 			if( puestoActual.isOrdenador()) {
-				puestoActual.setPersona(new Alumno());
+				puestoActual.setPersona(new Alumno(null, false));
 				numeroDeAlumnos--;
 			}
 		}

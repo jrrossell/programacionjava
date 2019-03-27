@@ -24,8 +24,13 @@ public class LanzadorAulas {
 		puestosDeAlumnos.add(puesto1);
 		
 		GestionDeAulas gestionAulas = new GestionDeAulas(new ListAulaDao());
-		gestionAulas.registrarAula("Kepler", true, true, puestosDeAlumnos);
-		gestionAulas.registrarAula("Aula3", true, true, puestosDeAlumnos);
+		
+		Aula aula1 = new Aula("Kepler", true, true, puestosDeAlumnos);
+		Aula aula2 = new Aula("Salon Java", true, true, puestosDeAlumnos);
+		
+		gestionAulas.registrarAula(aula1);
+		gestionAulas.registrarAula(aula2);
+
 		
 		System.out.println("-- Lista de Aulas --");
 		List<Aula> aula = gestionAulas.getAula();
@@ -39,21 +44,20 @@ public class LanzadorAulas {
 		
 		System.out.println();
 		System.out.println("-- Lista de Aulas --");
-		List<Aula> aula2 = gestionAulas.getAula();
-		for(Aula siguienteAula : aula2) {
+		List<Aula> aulaList = gestionAulas.getAula();
+		for(Aula siguienteAula : aulaList) {
 			System.out.println(siguienteAula.getNombre());
 		}
 		
-		Aula aula3 = new Aula("Aula3", true, true, puestosDeAlumnos);
 		Alumno alumno1 = new Alumno("Junior", true);
 		Alumno alumno2 = new Alumno("Manuel", true);
-		gestionAulas.asignarAlumnoAlAula(alumno1, aula3);
-		gestionAulas.asignarAlumnoAlAula(alumno2, aula3);
+		gestionAulas.asignarAlumnoAlAula(alumno1, aula1);
+		gestionAulas.asignarAlumnoAlAula(alumno2, aula2);
 		
 		
 		System.out.println();
-		System.out.println("-- Lista de Alumnos en Aula3 --");
-		List<Alumno> alumnos = (List<Alumno>) gestionAulas.listaDeAlumnoPorAula("Aula3");
+		System.out.println("-- Lista de Alumnos en Salon Java --");
+		List<Alumno> alumnos = (List<Alumno>) gestionAulas.listaDeAlumnoPorAula("Salon Java");
 		for(Alumno siguienteAlumno : alumnos) {
 			System.out.println(siguienteAlumno.getNombre());
 		}

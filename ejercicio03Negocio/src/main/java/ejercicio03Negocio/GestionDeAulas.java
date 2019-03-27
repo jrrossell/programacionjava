@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
@@ -23,14 +24,21 @@ public class GestionDeAulas {
 		this.aulaDao = aulaDao;
 	}
 
-	public void registrarAula(String nombre, boolean proyector, boolean pizarra, Set<PuestoDeTrabajo> puestosDeAlumnos) {
-		Aula aula = new Aula(nombre, proyector, pizarra, puestosDeAlumnos);
+	public void registrarAula(Aula aula) {
+		//Aula aula = new Aula(nombre, proyector, pizarra, puestosDeAlumnos);
 		aulaDao.createAula(aula);
 	}
 	
 	public List<Aula> getAula() {
 		// TODO Auto-generated method stub
 		List<Aula> aula = aulaDao.getAula();
+		return aula;
+		
+	}
+	
+	public Map<String,Aula> getAula2() {
+		// TODO Auto-generated method stub
+		Map<String,Aula> aula = aulaDao.getAula2();
 		return aula;
 		
 	}

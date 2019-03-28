@@ -1,30 +1,11 @@
-package ejemplo05beans;
+package ejemplo05beans.beans1;
 
 public class MorcillaDeLeon {
-	private String sabor;
-	private String color;
-
-	public String getSabor() {
-		return sabor;
-	}
-
-	public void setSabor(String sabor) {
-		this.sabor = sabor;
-	}
-
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
 	@Override
 	public String toString() {
 		return "MorcillaDeLeon [sabor=" + sabor + ", color=" + color + "]";
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -32,7 +13,6 @@ public class MorcillaDeLeon {
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -50,4 +30,18 @@ public class MorcillaDeLeon {
 		return true;
 	}
 
+	private String sabor;
+	private String color;
+	public String getSabor() {
+		return sabor;
+	}
+	public void setSabor(String sabor) {
+		this.sabor = sabor;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
 }

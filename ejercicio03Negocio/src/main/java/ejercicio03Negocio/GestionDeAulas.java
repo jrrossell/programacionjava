@@ -24,7 +24,6 @@ public class GestionDeAulas {
 	}
 
 	public void registrarAula(Aula aula) {
-		//Aula aula = new Aula(nombre, proyector, pizarra, puestosDeAlumnos);
 		aulaDao.createAula(aula);
 	}
 	

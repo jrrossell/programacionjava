@@ -3,14 +3,15 @@
   <groupId>com.curso.java.spring</groupId>
   <artifactId>ejemplo05beans</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
   <properties>
-  <!-- Esto lo hacemos para cambiar la version de java sin tener que copiar el plugin -->
+  <!-- Esto lo hacemos para cambiar la versión de java sin tener que copiar el Plugin -->
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
-  	<!-- Esto lo hacemos para establecer el encoding de origen y del artefacto -->
+  <!--  Esto lo hacemos para establecer el encoding de origen y del artefacto -->
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
-  	<!-- Esta propiedad me la acabo de inventar -->
+  <!--  Esta propiedad me la acabo de inventar, y la uso como variable en deps -->
   	<spring.framework.version>5.1.5.RELEASE</spring.framework.version>
   </properties>
   <dependencies>
@@ -26,3 +27,13 @@
   	</dependency>
   </dependencies>
 </project>
+
+
+
+
+
+
+
+
+
+

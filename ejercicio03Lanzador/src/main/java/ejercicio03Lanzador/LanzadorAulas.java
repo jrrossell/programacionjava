@@ -4,18 +4,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
-import ejercicio03Dao.ListAulaDao;
 import ejercicio03Negocio.GestionDeAulas;
 
 public class LanzadorAulas {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static ApplicationContext context = new ClassPathXmlApplicationContext("beansDao.xml");
 
+	public static void main(String[] args) {
+		
 		Set<PuestoDeTrabajo> puestosDeAlumnos = new HashSet<PuestoDeTrabajo>();
 		
 		PuestoDeTrabajo puesto = new PuestoDeTrabajo(true);
@@ -23,7 +26,11 @@ public class LanzadorAulas {
 		puestosDeAlumnos.add(puesto);
 		puestosDeAlumnos.add(puesto1);
 		
-		GestionDeAulas gestionAulas = new GestionDeAulas(new ListAulaDao());
+		//Bean del DAO
+		//IAulaDAO daoDeAula = context.getBean("daoDeAula", IAulaDAO.class);
+		
+		//Bean del Negocio
+		GestionDeAulas gestionAulas = (GestionDeAulas) context.getBean("daoDeNegocio");
 		
 		Aula aula1 = new Aula("Kepler", true, true, puestosDeAlumnos);
 		Aula aula2 = new Aula("Salon Java", true, true, puestosDeAlumnos);
@@ -35,7 +42,7 @@ public class LanzadorAulas {
 		System.out.println("-- Lista de Aulas --");
 		List<Aula> aula = gestionAulas.getAula();
 		for(Aula siguienteAula : aula) {
-			System.out.println(siguienteAula.getNombre());
+			System.out.println(siguienteAula);
 		}
 		
 		System.out.println();
@@ -46,7 +53,7 @@ public class LanzadorAulas {
 		System.out.println("-- Lista de Aulas --");
 		List<Aula> aulaList = gestionAulas.getAula();
 		for(Aula siguienteAula : aulaList) {
-			System.out.println(siguienteAula.getNombre());
+			System.out.println(siguienteAula);
 		}
 		
 		Alumno alumno1 = new Alumno("Junior", true);

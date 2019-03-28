@@ -47,5 +47,9 @@ public class Aula {
 	public void setPuestosDeAlumnos(Set<PuestoDeTrabajo> puestosDeAlumnos) {
 		this.puestosDeAlumnos = puestosDeAlumnos;
 	}
+	@Override
+	public String toString() {
+		return "Aula [nombre=" + nombre + "]";
+	}
 
 }

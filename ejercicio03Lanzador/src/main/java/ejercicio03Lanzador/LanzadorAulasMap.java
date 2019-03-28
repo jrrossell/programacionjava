@@ -2,7 +2,6 @@ package ejercicio03Lanzador;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
@@ -37,8 +36,8 @@ public class LanzadorAulasMap {
 		gestionAulasMap.registrarAula(aula3);
 		
 		System.out.println("-- Lista de Aulas Map--");
-		Map<String,Aula> aula = gestionAulasMap.getAula2();
-		for(String siguienteAula : aula.keySet()) {
+		List<Aula> aula = gestionAulasMap.getAula();
+		for(Aula siguienteAula : aula) {
 			System.out.println(siguienteAula);
 		}
 		
@@ -48,8 +47,8 @@ public class LanzadorAulasMap {
 		
 		System.out.println();
 		System.out.println("-- Lista de Aulas Map--");
-		Map<String,Aula> aulaMap = gestionAulasMap.getAula2();
-		for(String siguienteAula : aulaMap.keySet()) {
+		List<Aula> aulaMap = gestionAulasMap.getAula();
+		for(Aula siguienteAula : aulaMap) {
 			System.out.println(siguienteAula);
 		}
 		

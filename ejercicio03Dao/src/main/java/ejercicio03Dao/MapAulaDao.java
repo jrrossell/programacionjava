@@ -1,6 +1,8 @@
 package ejercicio03Dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -11,14 +13,14 @@ public class MapAulaDao implements IAulaDAO{
 	private Map<String,Aula> mapaAula = new HashMap<String, Aula>();
 	
 	public void createAula(Aula aula) {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		mapaAula.put(aula.getNombre(), aula);
 	}
 
-	public Map<String,Aula> getAula2() {
-		// TODO Auto-generated method stub
-		return mapaAula;
-	}
+	//public Map<String,Aula> getAula2() {
+		// TODO Auto-generated method stub//
+		//return mapaAula;
+	//}
 
 	public void updateAula(Aula aula) {
 		// TODO Auto-generated method stub
@@ -38,8 +40,15 @@ public class MapAulaDao implements IAulaDAO{
 	}
 
 	public List<Aula> getAula() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Aula> listaDeAulas = new ArrayList<Aula>();
+		
+		Iterator<String> iteradorAulas = mapaAula.keySet().iterator();
+		while(iteradorAulas.hasNext()) {
+			String clave = iteradorAulas.next();
+			Aula valor = mapaAula.get(clave);
+			listaDeAulas.add(valor);
+		}
+		return listaDeAulas;
 	}
 	
 }

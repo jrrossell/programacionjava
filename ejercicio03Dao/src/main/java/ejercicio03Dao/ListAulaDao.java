@@ -3,8 +3,6 @@ package ejercicio03Dao;
 import java.util.ArrayList;
 //import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
 public class ListAulaDao implements IAulaDAO {
@@ -56,11 +54,6 @@ public class ListAulaDao implements IAulaDAO {
 				return aulaRecorrer;
 			}
 		}
-		return null;
-	}
-
-	public Map<String, Aula> getAula2() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -2,7 +2,11 @@ package com.curso.java.oo.ejercicio01oo.model;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
+@Scope(value = "prototype")
 public class Aula {
 	
 	private String nombre;

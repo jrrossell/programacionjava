@@ -2,12 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>gestoradeaulas</groupId>
   <artifactId>ejercicio03Negocio</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <dependencies>
   	<dependency>
   		<groupId>gestoradeaulas</groupId>
   		<artifactId>ejercicio03Dao</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
+  		<version>0.0.2-SNAPSHOT</version>
   	</dependency>
   </dependencies>
 </project>

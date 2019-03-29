@@ -3,14 +3,5 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="daoDeAula" class="ejercicio03Dao.ListAulaDao"/>
-	
-	<bean id="daoDeNegocio" class="ejercicio03Negocio.GestionDeAulas">
-		<constructor-arg name="aulaDao" ref="daoDeAula"/>
-	</bean>
-	
 	<bean id="arrayDeAula" class="java.util.ArrayList"/>
-	
-<!-- 	<bean id="daoDeAula" class="ejercicio03Dao.MapAulaDao"/> -->
-
 </beans>

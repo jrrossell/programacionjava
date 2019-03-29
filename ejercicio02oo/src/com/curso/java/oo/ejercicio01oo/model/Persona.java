@@ -1,12 +1,14 @@
 package com.curso.java.oo.ejercicio01oo.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Persona {
 	
 	private String nombre;
 
 	public Persona() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Persona(String nombre) {
@@ -20,5 +22,10 @@ public class Persona {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	
+	@Override
+	public String toString() {
+		return "Persona [nombre=" + nombre + "]";
 	}
 }

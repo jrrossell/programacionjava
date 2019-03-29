@@ -2,6 +2,7 @@ package com.curso.java.oo.ejercicio01oo.model;
 
 import java.util.Set;
 
+
 public class Aula {
 	
 	private String nombre;
@@ -12,7 +13,7 @@ public class Aula {
 	
 	public Aula(String nombre, boolean proyector, boolean pizarra, Set<PuestoDeTrabajo> puestosDeAlumnos) {
 		super();
-		this.nombre = nombre;
+		this.nombre = nombre; 
 		this.proyector = proyector;
 		this.pizarra = pizarra;
 		this.puestosDeAlumnos = puestosDeAlumnos;

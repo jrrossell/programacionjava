@@ -6,6 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 //import com.curso.java.oo.ejercicio01oo.model.Persona;
 //import com.curso.java.oo.ejercicio01oo.model.Profesor;
@@ -14,12 +17,17 @@ import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
 import ejercicio03Dao.IAulaDAO;
 
+@Service(value = "daoDeNegocio")
 public class GestionDeAulas {
 	
+	@Autowired
 	private IAulaDAO aulaDao;
 
-	public GestionDeAulas(IAulaDAO aulaDao) {
-		super();
+	public IAulaDAO getAulaDao() {
+		return aulaDao;
+	}
+
+	public void setAulaDao(IAulaDAO aulaDao) {
 		this.aulaDao = aulaDao;
 	}
 
@@ -28,14 +36,12 @@ public class GestionDeAulas {
 	}
 	
 	public List<Aula> getAula() {
-		// TODO Auto-generated method stub
 		List<Aula> aula = aulaDao.getAula();
 		return aula;
 		
 	}
 	
 	public void modificarAula(Aula aula) {
-		// TODO Auto-generated method stub
 		aulaDao.updateAula(aula);
 	}
 	
@@ -86,12 +92,8 @@ public class GestionDeAulas {
 
 	}
 	
-	
 	public void eliminarAula(String nombreDeAula) {
 		aulaDao.deleteAula(nombreDeAula);
 	}
-	
-	
-	
 	
 }

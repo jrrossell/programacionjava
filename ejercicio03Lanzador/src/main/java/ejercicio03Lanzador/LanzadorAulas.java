@@ -15,7 +15,7 @@ import ejercicio03Negocio.GestionDeAulas;
 
 public class LanzadorAulas {
 
-	public static ApplicationContext context = new ClassPathXmlApplicationContext("beansDao.xml");
+	public static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
 	public static void main(String[] args) {
 		
@@ -31,6 +31,7 @@ public class LanzadorAulas {
 		
 		//Bean del Negocio
 		GestionDeAulas gestionAulas = (GestionDeAulas) context.getBean("daoDeNegocio");
+		//gestionAulas.setAulaDao(daoDeAula);
 		
 		Aula aula1 = new Aula("Kepler", true, true, puestosDeAlumnos);
 		Aula aula2 = new Aula("Salon Java", true, true, puestosDeAlumnos);
@@ -66,7 +67,7 @@ public class LanzadorAulas {
 		System.out.println("-- Lista de Alumnos en Salon Java --");
 		List<Alumno> alumnos = (List<Alumno>) gestionAulas.listaDeAlumnoPorAula("Salon Java");
 		for(Alumno siguienteAlumno : alumnos) {
-			System.out.println(siguienteAlumno.getNombre());
+			System.out.println(siguienteAlumno);
 		}
 	}
 

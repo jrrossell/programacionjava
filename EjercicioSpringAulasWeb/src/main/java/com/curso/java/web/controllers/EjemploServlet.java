@@ -1,11 +1,17 @@
-package ejercicio03Lanzador;
+package com.curso.java.web.controllers;
 
-//import java.util.HashSet;
+import java.io.IOException;
 import java.util.List;
-//import java.util.Set;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+//import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
@@ -13,18 +19,48 @@ import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
 import ejercicio03Negocio.GestionDeAulas;
 
-public class LanzadorAulas {
-
-	public static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-
-	public static void main(String[] args) {
+/**
+ * Servlet implementation class EjemploServlet
+ */
+@WebServlet({ "/alumnos" })
+public class EjemploServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	private ApplicationContext context;
+	
+	//agregar el codigo main al metodo service
+	//publicar los alumnos request
+	//mostrarlo en saludo.jsp
+	
+	@Override
+	public void init() throws ServletException {
 		
-		//Set<PuestoDeTrabajo> puestosDeAlumnos = new HashSet<PuestoDeTrabajo>();
+		ApplicationContext applicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
+		this.context = applicationContext;
+	}
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public EjemploServlet() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
-//		PuestoDeTrabajo puesto = new PuestoDeTrabajo(true);
-//		PuestoDeTrabajo puesto1 = new PuestoDeTrabajo(true);
-//		PuestoDeTrabajo puesto2 = new PuestoDeTrabajo(true);
-//		PuestoDeTrabajo puesto3 = new PuestoDeTrabajo(true);
+		
+		request.setAttribute("mensajeSingleton", context.getBean("mensajeSingleton"));
+		request.setAttribute("mensajePrototype", context.getBean("mensajePrototype"));
+		request.setAttribute("mensajeRequest", context.getBean("mensajeRequest"));
+		request.setAttribute("mensajeSession", context.getBean("mensajeSession"));
+		request.setAttribute("mensajeAlumnos", context.getBean("mensajeAlumnos"));
+		getServletContext().getRequestDispatcher("/WEB-INF/jsps/saludar.jsp").forward(request, response);
+		
 		
 		PuestoDeTrabajo puesto1 = context.getBean(PuestoDeTrabajo.class);
 		puesto1.setOrdenador(true);
@@ -34,17 +70,10 @@ public class LanzadorAulas {
 		puesto3.setOrdenador(true);
 		PuestoDeTrabajo puesto4 = context.getBean(PuestoDeTrabajo.class);
 		puesto4.setOrdenador(true);
-
-		//Bean del DAO
-		//IAulaDAO daoDeAula = context.getBean("daoDeAula", IAulaDAO.class);
 		
 		//Bean del Negocio
 		GestionDeAulas gestionAulas = (GestionDeAulas) context.getBean("daoDeNegocio");
-		//gestionAulas.setAulaDao(daoDeAula);
-		
-		//Aula aula1 = new Aula("Kepler", true, true, puestosDeAlumnos);
-		//Aula aula2 = new Aula("Sala Java", true, true, puestosDeAlumnos);
-		//Aula aula3 = new Aula("Salon Nuevo", true, true, puestosDeAlumnos);
+
 		Aula aula1 = context.getBean(Aula.class);
 		aula1.setNombre("kepler");
 		aula1.getPuestosDeAlumnos().add(puesto1);
@@ -78,12 +107,7 @@ public class LanzadorAulas {
 		for(Aula siguienteAula : aulaList) {
 			System.out.println(siguienteAula);
 		}
-		
-		//Alumno alumno1 = new Alumno("Junior", true);
-		//Alumno alumno2 = new Alumno("Manuel", true);
-		//Alumno alumno3 = new Alumno("Jose", true);
-		//Alumno alumno4 = new Alumno("Pepe", true);
-		
+
 		Alumno alumno1 = context.getBean(Alumno.class);
 		alumno1.setNombre("Junior");
 		Alumno alumno2 = context.getBean(Alumno.class);

@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>gestordeaulas</groupId>
-  <artifactId>ejercicio03Lanzador</artifactId>
+  <groupId>com.curso.java.spring</groupId>
+  <artifactId>ejercicio03Modelo</artifactId>
   <version>0.0.2-SNAPSHOT</version>
   
-  <properties>
+    <properties>
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
 
@@ -14,13 +14,21 @@
   	<spring.framework.version>5.1.5.RELEASE</spring.framework.version>
   </properties>
   
-  <dependencies>
-  	<dependency>
-  		<groupId>com.curso.java.spring</groupId>
-  		<artifactId>ejercicio03Negocio</artifactId>
-  		<version>0.0.2-SNAPSHOT</version>
-  	</dependency>
-  	
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+    <dependencies>
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-context</artifactId>

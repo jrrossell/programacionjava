@@ -10,6 +10,9 @@
 <!-- 	<bean id="daoDeNegocio" class="ejercicio03Negocio.GestionDeAulas"> -->
 <!-- 	<property name="aulaDao" ref="daoDeAula" /> -->
 <!-- </bean> -->
+
+	<bean id="puestosDeAlumnos" class="java.util.HashSet" scope="prototype"/>
+	<bean id="puestosDeProfesores" class="java.util.HashSet" scope="prototype"/>
 	
 	<context:component-scan base-package="ejercicio03Negocio"/>
 	<context:component-scan base-package="ejercicio03Lanzador"/>

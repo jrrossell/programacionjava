@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<bean 	id="mensajeSingleton" 
+			class="com.curso.java.web.model.MensajeChulo" 
+			scope="singleton">
+		<property name="nombre" value="singleton"/>
+		<property name="descripcion" value="Este objeto es un singleton"/>
+	</bean>
+	<bean 	id="mensajePrototype" 
+			class="com.curso.java.web.model.MensajeChulo" 
+			scope="prototype">
+		<property name="nombre" value="prototype"/>
+		<property name="descripcion" value="Este objeto es un prototype"/>
+	</bean>
+	<bean 	id="mensajeRequest" 
+			class="com.curso.java.web.model.MensajeChulo" 
+			scope="request">
+		<property name="nombre" value="request"/>
+		<property name="descripcion" value="Este objeto es de tipo request"/>
+	</bean>
+	<bean 	id="mensajeSession" 
+			class="com.curso.java.web.model.MensajeChulo"
+			scope="session">
+		<property name="nombre" value="session"/>
+		<property name="descripcion" value="Este objeto es de tipo session"/>
+	</bean>
+	
+	<bean 	id="mensajeAlumnos" 
+			class="com.curso.java.oo.ejercicio01oo.model.Persona"
+			scope="session">
+		<property name="nombre" value="junior"/>
+	</bean>
+	
+	<bean id="puestosDeAlumnos" class="java.util.HashSet" scope="prototype"/>
+	<bean id="puestosDeProfesores" class="java.util.HashSet" scope="prototype"/>
+	
+	<context:component-scan base-package="ejercicio03Negocio"/>
+	<context:component-scan base-package="ejercicio03Lanzador"/>
+	<context:component-scan base-package="ejercicio03Dao"/>
+	<context:component-scan base-package="com.curso.java.oo.ejercicio01oo.model"/>
+</beans>

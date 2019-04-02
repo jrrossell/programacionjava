@@ -28,10 +28,6 @@ public class EjemploServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ApplicationContext context;
 	
-	//agregar el codigo main al metodo service
-	//publicar los alumnos request
-	//mostrarlo en saludo.jsp
-	
 	@Override
 	public void init() throws ServletException {
 		
@@ -53,15 +49,11 @@ public class EjemploServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
-		request.setAttribute("mensajeSingleton", context.getBean("mensajeSingleton"));
-		request.setAttribute("mensajePrototype", context.getBean("mensajePrototype"));
-		request.setAttribute("mensajeRequest", context.getBean("mensajeRequest"));
-		request.setAttribute("mensajeSession", context.getBean("mensajeSession"));
-		request.setAttribute("mensajeAlumnos", context.getBean("mensajeAlumnos"));
-		getServletContext().getRequestDispatcher("/WEB-INF/jsps/saludar.jsp").forward(request, response);
-		
-		
+//		request.setAttribute("mensajeSingleton", context.getBean("mensajeSingleton"));
+//		request.setAttribute("mensajePrototype", context.getBean("mensajePrototype"));
+//		request.setAttribute("mensajeRequest", context.getBean("mensajeRequest"));
+//		request.setAttribute("mensajeSession", context.getBean("mensajeSession"));
+
 		PuestoDeTrabajo puesto1 = context.getBean(PuestoDeTrabajo.class);
 		puesto1.setOrdenador(true);
 		PuestoDeTrabajo puesto2 = context.getBean(PuestoDeTrabajo.class);
@@ -69,6 +61,8 @@ public class EjemploServlet extends HttpServlet {
 		PuestoDeTrabajo puesto3 = context.getBean(PuestoDeTrabajo.class);
 		puesto3.setOrdenador(true);
 		PuestoDeTrabajo puesto4 = context.getBean(PuestoDeTrabajo.class);
+		puesto4.setOrdenador(true);
+		PuestoDeTrabajo puesto5 = context.getBean(PuestoDeTrabajo.class);
 		puesto4.setOrdenador(true);
 		
 		//Bean del Negocio
@@ -88,6 +82,7 @@ public class EjemploServlet extends HttpServlet {
 		aula2.getPuestosDeAlumnos().add(puesto2);
 		aula2.getPuestosDeAlumnos().add(puesto3);
 		aula2.getPuestosDeAlumnos().add(puesto4);
+		aula2.getPuestosDeAlumnos().add(puesto5);
 		gestionAulas.registrarAula(aula2);
 		//gestionAulas.registrarAula(aula3);
 		
@@ -116,18 +111,30 @@ public class EjemploServlet extends HttpServlet {
 		alumno3.setNombre("Jose");
 		Alumno alumno4 = context.getBean(Alumno.class);
 		alumno4.setNombre("Pepe");
+		Alumno alumno5 = context.getBean(Alumno.class);
+		alumno5.setNombre("Maria");
 		
 		gestionAulas.asignarAlumnoAlAula(alumno1, aula2);
 		gestionAulas.asignarAlumnoAlAula(alumno2, aula2);
 		gestionAulas.asignarAlumnoAlAula(alumno3, aula2);
 		gestionAulas.asignarAlumnoAlAula(alumno4, aula2);
+		gestionAulas.asignarAlumnoAlAula(alumno5, aula2);
 		
 		System.out.println();
-		System.out.println("-- Lista de Alumnos en Salon Java --");
+		System.out.println("-- Lista de Alumnos en Sala Java --");
 		List<Alumno> alumnos = (List<Alumno>) gestionAulas.listaDeAlumnoPorAula("Sala Java");
+//		request.setAttribute("listaDeAlumnos", alumnos);
+		int i = 0;
 		for(Alumno siguienteAlumno : alumnos) {
 			System.out.println(siguienteAlumno);
+			i++;
+			request.setAttribute("alumno" + i, siguienteAlumno.getNombre());
+			
 		}
+		
+		request.setAttribute("nombreAula", aula2.getNombre());
+		request.setAttribute("cantidadAlumos", i);
+		getServletContext().getRequestDispatcher("/WEB-INF/jsps/saludar.jsp").forward(request, response);
 	}
 
 }

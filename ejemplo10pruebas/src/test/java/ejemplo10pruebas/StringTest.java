@@ -18,5 +18,15 @@ public class StringTest {
 		EjemploDeClaseFuncional claseFuncional = new EjemploDeClaseFuncional();
 		assertTrue("No devuelve texto en mays!",claseFuncional.textoEnMayusculas("texto").equals("TEXTO"));
 	}
+	@Test
+	public void testTextoEnMayusculas2() {
+		EjemploDeClaseFuncional claseFuncional = new EjemploDeClaseFuncional();
+		assertTrue("No devuelve texto en mays!",claseFuncional.textoEnMayusculas("texto").equals("TEXTO"));
+	}
+	@Test
+	public void testTextoEnMayusculas3() {
+		EjemploDeClaseFuncional claseFuncional = new EjemploDeClaseFuncional();
+		assertTrue("No devuelve texto en mays!",claseFuncional.textoEnMayusculas("texto").equals("TEXTO"));
+	}
 
 }

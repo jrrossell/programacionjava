@@ -16,12 +16,13 @@ import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
 import ejercicio03Dao.IAulaDAO;
+import ejercicio03Dao.ListAulaDao;
 
 @Service(value = "daoDeNegocio")
 public class GestionDeAulas {
 	
 	@Autowired
-	private IAulaDAO aulaDao;
+	private IAulaDAO aulaDao = new ListAulaDao();
 
 	public IAulaDAO getAulaDao() {
 		return aulaDao;

@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>Lista de Alumnos en ${nombreAula}</h3>
+<h3>Lista de Alumnos en sala ${nombreAula}</h3>
 <%-- Singleton: ${mensajeSingleton.nombre}<br/> --%>
 <%-- Prototype: ${mensajePrototype.nombre} - ${mensajePrototype.descripcion}<br/> --%>
 <%-- Request: ${mensajeRequest.nombre} - ${mensajeRequest.descripcion}<br/> --%>

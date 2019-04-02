@@ -77,7 +77,7 @@ public class EjemploServlet extends HttpServlet {
 		gestionAulas.registrarAula(aula1);
 		
 		Aula aula2 = context.getBean(Aula.class);
-		aula2.setNombre("Sala Java");
+		aula2.setNombre("Galileo");
 		aula2.getPuestosDeAlumnos().add(puesto1);
 		aula2.getPuestosDeAlumnos().add(puesto2);
 		aula2.getPuestosDeAlumnos().add(puesto3);
@@ -121,8 +121,8 @@ public class EjemploServlet extends HttpServlet {
 		gestionAulas.asignarAlumnoAlAula(alumno5, aula2);
 		
 		System.out.println();
-		System.out.println("-- Lista de Alumnos en Sala Java --");
-		List<Alumno> alumnos = (List<Alumno>) gestionAulas.listaDeAlumnoPorAula("Sala Java");
+		System.out.println("-- Lista de Alumnos en sala Galileo --");
+		List<Alumno> alumnos = (List<Alumno>) gestionAulas.listaDeAlumnoPorAula("Galileo");
 //		request.setAttribute("listaDeAlumnos", alumnos);
 		int i = 0;
 		for(Alumno siguienteAlumno : alumnos) {

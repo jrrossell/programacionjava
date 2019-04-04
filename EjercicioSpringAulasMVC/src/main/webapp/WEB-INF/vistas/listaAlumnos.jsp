@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +8,16 @@
 </head>
 <body>
 	<h3>Lista de Alumnos en Aula ${aula}</h3>
-	<br/>
+	<br />
 	<ul>
-	<li>${alumno1}</li><br/>
-	<li>${alumno2}</li><br/>
-	<li>${alumno3}</li><br/>
-	<li>${alumno4}</li><br/>
-	<li>${alumno5}</li><br/>
+		<li>${alumno1}</li>
+		<li>${alumno2}</li>
+		<li>${alumno3}</li>
+		<li>${alumno4}</li>
+		<li>${alumno5}</li>
 	</ul>
 	
+	${mensaje}
+
 </body>
 </html>

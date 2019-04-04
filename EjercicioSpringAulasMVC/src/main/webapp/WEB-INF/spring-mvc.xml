@@ -6,12 +6,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-	<!-- Para que detecte las anotaciones en los paquetes -->
-	<context:component-scan base-package="com.curso.java.web.controllers"/>
-	<context:component-scan base-package="com.curso.java.web.model"/>
-	
+		
 	<!--  Para que detecte además anotaciones de Spring MVC -->
-	<mvc:annotation-driven/>
+ 	<mvc:annotation-driven/> 
 
 	<bean id="viewResolverJSP"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -19,8 +16,15 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<context:component-scan base-package="ejercicio03Negocio"/>
-	<context:component-scan base-package="ejercicio03Lanzador"/>
-	<context:component-scan base-package="ejercicio03Dao"/>
-	<context:component-scan base-package="com.curso.java.oo.ejercicio01oo.model"/>
+		<!-- Para que detecte las anotaciones en los paquetes -->
+ 	<context:component-scan base-package="com.curso.java.web.controllers"/> 
+ 	<context:component-scan base-package="com.curso.java.web.model"/> 
+ 	<context:component-scan base-package="ejercicio03Negocio"/> 
+ 	<context:component-scan base-package="ejercicio03Dao"/> 
+ 	<context:component-scan base-package="com.curso.java.oo.ejercicio01oo.model"/>
+	
+ 	<bean id="puestosDeAlumnos" class="java.util.HashSet" scope="prototype"/> 
+	<bean id="puestosDeProfesores" class="java.util.HashSet" scope="prototype"/> 
+	
+	
 </beans>

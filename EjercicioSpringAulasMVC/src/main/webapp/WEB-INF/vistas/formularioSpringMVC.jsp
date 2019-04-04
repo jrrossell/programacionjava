@@ -9,8 +9,8 @@
 <body>
 	<h1>Bienvenidos a Spring MVC</h1>
 	<form action="listaAlumnos">
-<!-- 		Nombre de Aula: <input type="text" name="nombre"/><br/> -->
-		<input type="submit" value="Mostrar Alumnos Aula Galileo">
+		Nombre de Aula: <input type="text" name="nombre"/><br/>
+		<input type="submit" value="Mostrar Alumnos en Aula">
 	</form>
 </body>
 </html>

@@ -21,6 +21,7 @@ public class LanzadorJPA {
 		System.out.println("Inicializamos la base de datos");
 		Pelicula pelicula = new Pelicula();
 		pelicula.setTitulo("La dama y el moribundo");
+		pelicula.setAutor("Junior");
 		pelicula.setDirector("Tor");
 		pelicula.setYear(1980);
 

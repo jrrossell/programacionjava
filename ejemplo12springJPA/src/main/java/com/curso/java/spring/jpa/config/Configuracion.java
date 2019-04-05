@@ -32,7 +32,7 @@ public class Configuracion {
 		// Clase para realizar las conexiones
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		// La cadena de conexion. Que es distinta para cada base de datos.
-		StringBuilder constructorDeCadenas = new StringBuilder("jdbc:mysql://localhost:3307/test");
+		StringBuilder constructorDeCadenas = new StringBuilder("jdbc:mysql://192.168.1.93:23760:3307/test");
 									//driver:nombre://ruta:puerto/bbdd
 		constructorDeCadenas.append("?useUnicode=true");
 		constructorDeCadenas.append("&useJDBCCompliantTimezoneShift=true");

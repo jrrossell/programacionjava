@@ -1,0 +1,62 @@
+version: "3.3"
+services:
+  apache1:
+    image: httpd:2.4-alpine
+    ports:
+      - 81:80
+    networks:
+      - losapaches 
+  apache2:
+    image: httpd:2.4-alpine
+    ports:
+      - 82:80
+    networks:
+      - losapaches
+  apache3:
+    image: httpd:2.4-alpine
+    ports:
+      - 83:80
+    networks:
+      - losapaches
+  tomcat1:
+    image: tomcat:9-jre8-alpine
+    networks:
+      - losapaches
+      - mybbdd
+      - mongotomcat
+  tomcat2:
+    image: tomcat:9-jre8-alpine
+    networks:
+      - losapaches
+      - mybbdd
+      - mongotomcat
+  mysql:
+    image: mysql:5.5
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+    networks:
+      - mybbdd
+  mongodb:
+    image: mongo:latest
+    networks:
+      - mongored
+      - mongotomcat
+  nginx1:
+    image: nginx:latest
+    ports:
+      - 90:80
+    networks:
+      - mongored
+  nginx2:
+    image: nginx:latest
+    ports:
+      - 91:80
+    networks:
+      - mongored
+networks:
+  losapaches:
+  mybbdd:
+  mongotomcat:
+  mongored:
+
+  
